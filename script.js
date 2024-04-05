@@ -2,23 +2,44 @@ const game = ["Rock","Paper","Scissors"];
 
 const getComputerChoice = () => game[Math.floor(Math.random() * game.length)].toUpperCase();
 
-const playerPrompt = prompt("Rock, Paper, or Scissors?: ").toUpperCase();
-
-
+let playerWin = 0;
+let computerWin = 0;
 
 let playRound = (playerSelection, computerSelection) => {
     if(playerSelection == "ROCK" && computerSelection == "SCISSORS" || playerSelection == "PAPER" && computerSelection == "ROCK" || playerSelection == "SCISSORS" && computerSelection == "PAPER"){
-        return "You Win! You chose " + playerSelection + " and Computer chose " + computerSelection;
+        playerWin++
+        alert("You Win! You chose " + playerSelection + " and Computer chose " + computerSelection + "\r Player Score: " + playerWin + "\r Computer Score: " + computerWin)
     }
     else if(playerSelection == "ROCK" && computerSelection == "PAPER" || playerSelection == "PAPER" && computerSelection == "SCISSORS" || playerSelection == "SCISSORS" && computerSelection == "ROCK"){
-        return "You Lose! Computer chose " + computerSelection + " and you chose " + playerSelection;
+        computerWin++
+        alert( "You Lose! Computer chose " + computerSelection + " and you chose " + playerSelection + "\r Player Score: " + playerWin + "\r Computer Score: " + computerWin)
     }
     else if (playerSelection == computerSelection){
-        return "Draw! You both chose " + playerSelection;
+        alert("Draw! You both chose " + playerSelection + "\r Player Score: " + playerWin + "\r Computer Score: " + computerWin)
     }
     else {
-        return "Invalid selection. Please input Rock, Paper, or Scissors only.";
+        alert("Invalid selection. Please input Rock, Paper, or Scissors only.")
     }
 }
 
-console.log(playRound(playerPrompt, getComputerChoice()));
+const playGame = () => {
+
+    const playerPrompt = prompt("First to reach a score of 5 wins! \rRock, Paper, or Scissors?: ").toUpperCase();
+    console.log(playRound(playerPrompt, getComputerChoice()))
+
+}
+
+while (playerWin < 5 && computerWin < 5){
+    playGame()
+}
+
+if (playerWin == 5) {
+    alert("Player wins!")
+}
+else {
+    alert("Computer wins!")
+}
+
+
+
+
