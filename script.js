@@ -30,18 +30,16 @@ let playRound = (playerSelection, computerSelection) => {
             scoreBoard.textContent = "Player Score: " + playerWin + "\r Computer Score: " + computerWin;
          }
 
-    // This if else checks for the game winner based on who reaches the score of 5 first
+    // This checks for the game winner based on who reaches the score of 5 first
     if (playerWin === 5){
             playerWin = 0
             computerWin = 0
-            scoreBoard.textContent = ""
-            winner.textContent = "Player wins the game! You chose " + playerSelection + " and Computer chose " + getComputerChoice()
+            winner.textContent = "Player wins the game!"
         }
     else if (computerWin === 5){
             playerWin = 0
             computerWin = 0
-            scoreBoard.textContent = ""
-            winner.textContent = "Computer wins the game! You chose " + playerSelection + " and Computer chose " + getComputerChoice()
+            winner.textContent = "Computer wins the game!"
         }
 }
 // --- function playRound end
